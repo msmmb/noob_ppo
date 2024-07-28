@@ -110,8 +110,8 @@ class Trainer:
         self.entropy_coef = entropy_coef
         self.batch_size = batch_size
         self.n_epochs = n_epochs
-        self.actor_optimizer = self.optimizer = optim.Adam(self.agent.actor.parameters(), lr=actor_lr)
-        self.critic_optimizer = self.optimizer = optim.Adam(self.agent.critic.parameters(), lr=critic_lr)
+        self.actor_optimizer = optim.Adam(self.agent.actor.parameters(), lr=actor_lr)
+        self.critic_optimizer = optim.Adam(self.agent.critic.parameters(), lr=critic_lr)
         self.memory = Buffer(batch_size=self.batch_size)
 
     def remember(self, state, action, reward, value, prob, done):
